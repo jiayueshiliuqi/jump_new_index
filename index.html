@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>正在跳转</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .container {
+      background: white;
+      border-radius: 20px;
+      padding: 40px 30px;
+      text-align: center;
+      max-width: 400px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .arrow {
+      font-size: 60px;
+      margin-bottom: 20px;
+      animation: bounce 1.5s ease-in-out infinite;
+    }
+    h2 {
+      color: #333;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .steps {
+      text-align: left;
+      color: #666;
+      font-size: 16px;
+      line-height: 2;
+      margin: 20px 0;
+    }
+    .steps strong {
+      color: #667eea;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="arrow">↗️</div>
+    <h2>请在浏览器中打开</h2>
+    <div class="steps">
+      <p>📱 <strong>第一步：</strong>点击右上角 <strong>⋯</strong></p>
+      <p>🌐 <strong>第二步：</strong>选择"在浏览器中打开"</p>
+    </div>
+  </div>
+
+  <script>
+    // 改成你的实际网站地址
+    const targetUrl = 'https://yunsmart.com';
+    const ua = navigator.userAgent.toLowerCase();
+    
+    // 非微信环境直接跳转
+    if (!ua.includes('micromessenger')) {
+      window.location.href = targetUrl;
+    }
+  </script>
+</body>
+</html>
